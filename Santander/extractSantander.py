@@ -6,7 +6,7 @@ Created on Mon Oct  8 21:23:28 2018
 """
 
 from datetime import datetime
-from record  import record
+from record import record
 
 
 def extractSantander():
@@ -61,5 +61,5 @@ def extractASantanderRecord(temp_rows):
     temp=temp[1].split('\n')
     payee=temp[0].strip()
     address=""
-    rec=record(date,payee,amount,category,address,0)
+    rec=record(date,payee,amount,category,address,0,'Santander')
     return rec

@@ -31,5 +31,5 @@ def extractAMonzoRecord(row, balance):
     temp=test[8][23:].split(' ')
     address=temp[0]
     balance+=amount
-    rec=record(date,payee,amount,category,address,balance)
+    rec=record(date,payee,amount,category,address,balance,'Monzo')
     return rec , balance;

@@ -10,13 +10,15 @@ import numpy as np
 
 from Monzo.extractMonzo import extractMonzo
 from Santander.extractSantander import extractSantander
+from TSB.extractTSB import extractTSB
 
 records=extractMonzo()
 records.extend(extractSantander())
+records.extend(extractTSB())
 
 records.sort(key=lambda x: x.date_)
 
-balance=457.66
+balance=457.66+2619.73+368.22
 for entry in records:
     balance+=entry.amount_
     entry.balance_=balance
