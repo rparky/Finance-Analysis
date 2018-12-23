@@ -6,7 +6,7 @@ Created on Fri Dec 21 16:44:34 2018
 """
 
 from datetime import datetime
-from record  import record
+import classes
 
 
 def extractTSB():
@@ -17,70 +17,80 @@ def extractTSB():
      return records;
 
 def extractClassicEnhance():
-    records=extractTSBFile('TSB/ClassicEnhance/2016A.csv')
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2016A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2016B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2016C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2016E.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2017A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2017B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2017C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2017D.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2017E.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2018A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2018B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2018C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2018D.csv'))
-    records.extend(extractTSBFile('TSB/ClassicEnhance/2018E.csv'))
+    account='ClassicEnhance'
+    records=extractTSBFile('TSB/ClassicEnhance/2016A.csv',account)
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2016A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2016B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2016C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2016E.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2017A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2017B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2017C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2017D.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2017E.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2018A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2018B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2018C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2018D.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicEnhance/2018E.csv',account))
     return records;
 
 def extractClassicPlus():
-    records=extractTSBFile('TSB/ClassicEnhance/2016A.csv')
-    records.extend(extractTSBFile('TSB/ClassicPlus/2016A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2016B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2016C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2016D.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2016E.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2017A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2017B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2017C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2017D.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2017E.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2018A.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2018B.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2018C.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2018D.csv'))
-    records.extend(extractTSBFile('TSB/ClassicPlus/2018E.csv'))
+    account='ClassicPlus'
+    records=extractTSBFile('TSB/ClassicEnhance/2016A.csv',account)
+    records.extend(extractTSBFile('TSB/ClassicPlus/2016A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2016B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2016C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2016D.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2016E.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2017A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2017B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2017C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2017D.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2017E.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2018A.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2018B.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2018C.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2018D.csv',account))
+    records.extend(extractTSBFile('TSB/ClassicPlus/2018E.csv',account))
     return records;
 
 def extractEasySaver():
-    records=extractTSBFile('TSB/EasySaver/2018.csv')
+    account='EasySaver'
+    records=extractTSBFile('TSB/EasySaver/2018.csv',account)
     return records;
 
 def extractISA():
-    records=extractTSBFile('TSB/ISA/2018.csv')
+    account='ISA'
+    records=extractTSBFile('TSB/ISA/2018.csv',account)
     return records;
 
-
-def extractTSBFile(filename):
+def extractTSBFile(filename, account):
     file = open(filename)
     next(file, None) 
     records = []
     for row in file:  
-        records.append(extractATSBRecord(row))
+        records.append(extractATSBRecord(row, account))
 
     records.reverse()       
     return records;
 
-def extractATSBRecord(row): 
-    temp=row.split(',')
-    date=datetime.strptime(temp[0],'%Y-%m-%d')
-    category=temp[1]
-    payee=temp[4]
-    if len(temp[5])!=0:
-        amount=-float(temp[5])
+def extractATSBRecord(row, account): 
+    data=row.split(',')
+    amount=extractAmount(data)
+    date=datetime.strptime(data[0],'%Y-%m-%d')
+    category=''
+    payee=''
+    description=data[4]
+    location=classes.Location()
+    bank_details=classes.Bank_details('TSB', account)
+    payment_details=classes.Payment_details(in_out=classes.In_Out(amount),payment_method=data[1], payment_date=date)
+    rec=classes.Record(date,amount,category,description,payee,location,bank_details,payment_details)
+    return rec;
+
+def extractAmount(data):
+    if len(data[5])!=0:
+        amount=-float(data[5])
     else:
-        amount=float(temp[6])
-    address=""
-    rec=record(date,payee,amount,category,address,0,'TSB')
-    return rec
+        amount=float(data[6])
+    return amount;

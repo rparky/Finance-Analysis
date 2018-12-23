@@ -6,7 +6,7 @@ Created on Mon Oct  8 21:02:00 2018
 """
 
 from datetime import datetime
-from record  import record
+import classes
 
 def extractMonzo():
     records=extractMonzoFile('Monzo/Monzo.csv')
@@ -16,20 +16,29 @@ def extractMonzoFile(filename):
     file = open(filename, encoding="utf8")
     next(file, None) 
     records = []
-    balance=0
     for row in file:
-        rec , balance =  extractAMonzoRecord(row, balance)
+        rec =  extractAMonzoRecord(row)
         records.append(rec)
     return records;
 
-def extractAMonzoRecord(row, balance):
-    test=row.split(',')   
-    date=datetime.strptime(test[1],'%Y-%m-%dT%H:%M:%SZ')
-    amount=float(test[2])
-    category=test[6]
-    payee=test[8][0:22].strip()
-    temp=test[8][23:].split(' ')
-    address=temp[0]
-    balance+=amount
-    rec=record(date,payee,amount,category,address,balance,'Monzo')
-    return rec , balance;
+def extractAMonzoRecord(row):
+    data=row.split(',') 
+    date=datetime.strptime(data[1],'%Y-%m-%dT%H:%M:%SZ')
+    amount=float(data[2])    
+    category=data[6]
+    description=data[8] + ' ' + data[10]
+    payee=''
+    location=classes.Location(street=data[9])
+    bank_details=classes.Bank_details('Monzo','Standard')
+    payment_details=extractAPayment(data)
+    rec=classes.Record(date,amount,category,description,payee,location,bank_details,payment_details)
+    return rec;
+
+def extractAPayment(data):
+    in_out=classes.In_Out(data[2])
+    payment_type='card'
+    local_currency= data[5]
+    local_amount=data[4]
+    payment_date=datetime.strptime(data[1],'%Y-%m-%dT%H:%M:%SZ')
+    pay=classes.Payment_details(in_out,payment_type,local_currency,local_amount,payment_date)
+    return pay
