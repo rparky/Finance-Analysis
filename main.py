@@ -25,7 +25,20 @@ balance=returnStartBalance()
 for entry in records:
     balance+=entry.amount_
     currentbalance.append(balance)
-    currentdate.append(entry.date_)
+    currentdate.append(entry.date_)    
+
+words=[]
+for entry in records:
+    temp=entry.description_.split(' ')
+    temp2=[]
+    for element in temp:
+        temp2.extend(element.split(','))
+    
+    words.extend(temp2)
+
+words.sort()
+lesswords = list(dict.fromkeys(words))
+lesswords.sort()
 
 plt.plot(currentdate,currentbalance)
 plt.ylabel('money')

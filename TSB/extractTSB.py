@@ -57,12 +57,12 @@ def extractClassicPlus():
 
 def extractEasySaver():
     account='EasySaver'
-    records=extractTSBFile('TSB/EasySaver/2018.csv',account)
+    records=extractTSBFile('TSB/EasySaver/AllTime.csv',account)
     return records;
 
 def extractISA():
     account='ISA'
-    records=extractTSBFile('TSB/ISA/2018.csv',account)
+    records=extractTSBFile('TSB/ISA/AllTime.csv',account)
     return records;
 
 def extractTSBFile(filename, account):

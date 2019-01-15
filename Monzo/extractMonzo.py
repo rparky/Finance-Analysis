@@ -22,7 +22,8 @@ def extractMonzoFile(filename):
     return records;
 
 def extractAMonzoRecord(row):
-    data=row.split(',') 
+    row2=row.replace('"','')
+    data=row2.split(',') 
     date=datetime.strptime(data[1],'%Y-%m-%dT%H:%M:%SZ')
     amount=float(data[2])    
     category=data[6]

@@ -14,7 +14,7 @@ def extractSantander():
      return records;
 
 def extractSantanderCurrent():
-    account='current'
+    account='Current'
     records=extractSantanderFile('Santander/Current/SantanderCurrent2012.txt',account)
     records.extend(extractSantanderFile('Santander/Current/SantanderCurrent2013.txt',account))
     records.extend(extractSantanderFile('Santander/Current/SantanderCurrent2014.txt',account))
@@ -58,7 +58,7 @@ def extractASantanderRecord(temp_rows, account):
     temp=temp[1].split('\n')
     amount=float(temp[0])
     category=''
-    description=temp_rows[1]
+    description=temp_rows[1][13:]
     payee=''
     location=classes.Location()
     bank_details=classes.Bank_details('Santander',account)
