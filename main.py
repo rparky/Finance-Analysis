@@ -11,11 +11,13 @@ import numpy as np
 from Monzo.extractMonzo import extractMonzo
 from Santander.extractSantander import extractSantander
 from TSB.extractTSB import extractTSB
+from Nationwide.extractNationwide import extractNationwide
 from startBalance import returnStartBalance
 
 records=extractMonzo()
 records.extend(extractSantander())
 records.extend(extractTSB())
+records.extend(extractNationwide())
 
 records.sort(key=lambda x: x.date_)
 
