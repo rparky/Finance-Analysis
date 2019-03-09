@@ -7,19 +7,18 @@ Created on Wed Feb 27 20:55:15 2019
 import pandas as pd
 import DataFrame as DF
 from datetime import datetime
-import numpy as np
+from Utils import countFileRows
 
 def extractMonzo():
     records = extractMonzoFile('Monzo/Monzo.csv')
     return records;
 
 def extractMonzoFile(filename):
-    filename = 'Monzo/Monzo.csv'
     file = open(filename, encoding="utf8")
-    next(file, None) 
-    row_count = sum(1 for row in file)
-    file.seek(0)
-    next(file, None) 
+    skip = 1
+    row_count = countFileRows(file, skip)
+    for i in range(skip):
+        next(file, None) 
     temp_store = DF.newDict(row_count)
     for index, row in enumerate(file):
         row2=row.replace('"','')

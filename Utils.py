@@ -7,6 +7,11 @@ Created on Wed Feb  6 20:45:31 2019
 
 from datetime import datetime
 
+def countFileRows(file, rowskip):
+    row_count = sum(1 for row in file) - rowskip
+    file.seek(0)
+    return row_count
+
 def isfloat(value):
   try:
     float(value)
