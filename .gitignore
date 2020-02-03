@@ -82,3 +82,19 @@ Nationwide/FlexclusiveSaver/2018\.csv
 Nationwide/FlexiDirect/2018\.csv
 
 Nationwide/ISA/2018\.csv
+
+.idea/
+
+__pycache__/
+
+Monzo/AllTime.csv
+
+Nationwide/FlexclusiveSaver/2019.csv
+
+Nationwide/FlexiDirect/
+
+Nationwide/ISA/
+
+TSB/ClassicEnhance/
+
+TSB/ClassicPlus/

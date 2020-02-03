@@ -8,10 +8,6 @@ Created on Wed Oct  3 19:26:57 2018
 import matplotlib.pyplot as plt
 import numpy as np
 
-from Monzo.extractMonzo import extractMonzo
-from Santander.extractSantander import extractSantander
-from TSB.extractTSB import extractTSB
-from Nationwide.extractNationwide import extractNationwide
 from startBalance import returnStartBalance
 import Utils
 from datetime import datetime

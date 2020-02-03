@@ -8,7 +8,7 @@ Created on Wed Feb 27 20:45:40 2019
 import pandas as pd
 
 def getColumns():
-     return ['Date', 'Amount', 'Payee' , 'Catagory', 'Text', 'Bank', 'Account', 'Method', 'Direction', 'Location', 'Local Currency', 'Local Amount', 'Payment Date']
+     return ['Date', 'Time', 'Amount', 'Payee', 'Catagory', 'Text', 'Bank', 'Account', 'Method', 'Direction', 'Location', 'Local Currency', 'Local Amount', 'Payment Date']
 
 def newDataFrame(rows):
     return pd.DataFrame(columns=getColumns(), index=list(range(rows)) )

@@ -10,8 +10,8 @@ from datetime import datetime
 from Utils import countFileRows
 
 def extractMonzo():
-    records = extractMonzoFile('Monzo/Monzo.csv')
-    return records;
+    records = extractMonzoFile('Monzo/AllTime.csv')
+    return records
 
 def extractMonzoFile(filename):
     file = open(filename, encoding="utf8")
@@ -22,8 +22,10 @@ def extractMonzoFile(filename):
     temp_store = DF.newDict(row_count)
     for index, row in enumerate(file):
         row2=row.replace('"','')
-        data=row2.split(',')    
-        temp_store['Date'][index] = datetime.strptime(data[1],'%Y-%m-%dT%H:%M:%SZ')
+        data=row2.split(',')
+        date_time = datetime.strptime(data[1],'%Y-%m-%dT%H:%M:%SZ')
+        temp_store['Date'][index] = date_time.date()
+        temp_store['Time'][index] = date_time.time()
         temp_store['Amount'][index] = float(data[2])    
         temp_store['Catagory'][index] = data[6]
         temp_store['Text'][index] = data[8] + ' ' + data[10]
