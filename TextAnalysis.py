@@ -20,15 +20,15 @@ probablynumber = []
 cash = []
 stillwords = []
 for word in lesswords:
-    if Utils.isDateTime(word):
+    if Utils.is_date_time(word):
         dates.append(datetime.strptime(word, '%d-%m-%Y'))
-    elif Utils.isDateTime2(word):
+    elif Utils.is_date_time2(word):
         dates.append(datetime.strptime(word, '%Y-%m-%d'))
-    elif Utils.isfloat(word):
+    elif Utils.is_float(word):
         numbers.append(float(word))
     elif '£' in word:
         cash.append(word)
-    elif Utils.isfloat(word[0]):
+    elif Utils.is_float(word[0]):
         probablynumber.append(word)
     else:
         stillwords.append(word)
